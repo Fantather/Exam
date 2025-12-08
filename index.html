@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="main.js"></script>
+    <title>Search Film</title>
+</head>
+<body>
+    <b>Search:</b>
+    <div class="search-panel">
+        <label>
+            Title:
+            <input type="text" id="title-input" value="Sin">
+        </label>
+        <label>
+            Type:
+            <select id="type-select">
+                <option value="movie">Movie</option>
+                <option value="series">Series</option>
+                <option value="episode">Episode</option>
+            </select>
+        </label>
+        <button type="button" id="search-button">Search</button>
+    </div>
+    <div id="movies-container"></div>
+    <div id="pagination-container"></div>
+    <div id="movie-modal" class="modal">
+        <div class="modal-content">
+            <span id="close-modal-button" class="close-button">&times;</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+</body>
+</html>
