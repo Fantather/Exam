@@ -108,10 +108,13 @@ function createModalBody(movie)
     modalBody.append(img, infoWrapper);
 }
 
-closeModalButton.addEventListener('click', (event)=>{
+closeModalButton.addEventListener('click', closeModal);
+
+function closeModal()
+{
     const movieModal = document.getElementById('movie-modal');
     movieModal.style.display = 'none';
-});
+}
 
 function updateUrl()
 {
