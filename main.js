@@ -4,6 +4,9 @@ const searchButton = document.getElementById('search-button');
 /**@type {HTMLButtonElement}*/
 const closeModalButton = document.getElementById('close-modal-button');
 
+/**@type {HTMLDivElement}*/
+const movieModal = document.getElementById('movie-modal');
+
 
 const apikey = '6bb6f5e1';
 
@@ -109,10 +112,9 @@ function createModalBody(movie)
 }
 
 closeModalButton.addEventListener('click', closeModal);
-
+movieModal.addEventListener('click', closeModal);
 function closeModal()
 {
-    const movieModal = document.getElementById('movie-modal');
     movieModal.style.display = 'none';
 }
 
