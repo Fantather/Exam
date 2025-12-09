@@ -110,7 +110,7 @@ function createModalBody(movie)
 
 closeModalButton.addEventListener('click', (event)=>{
     const movieModal = document.getElementById('movie-modal');
-    movieModal.style.di
+    movieModal.style.display = 'none';
 });
 
 function updateUrl()
