@@ -11,9 +11,6 @@ const movieModal = document.getElementById('movie-modal');
 const apikey = '6bb6f5e1';
 
 
-// Прописать закрытие
-
-
 // Состояние текущего поиска
 let currentSearch = {
     title: '',
@@ -70,7 +67,7 @@ async function openMovieDetails(id)
     const movie = await getMovieByIdAsync(id);
     history.pushState(currentSearch, '', `?id=${id}`);
     createModalBody(movie);
-    movieModal.style.display = 'block';
+    movieModal.style.display = 'flex';
     console.log(movie);
 }
 
@@ -162,8 +159,11 @@ function getMovieHtml(movie)
     movieCard.className = 'movie-card';
 
     const img = document.createElement('img');
-    img.src = movie.Poster !== 'N/A' ? movie.Poster : '';
+    img.src = movie.Poster !== 'N/A' ? movie.Poster : 'https://placehold.co/300x400';
     img.alt = movie.Title;
+    img.addEventListener('error', () => {
+        setPlacehodler(img);
+    });
 
     const title = document.createElement('h3');
     title.innerText = movie.Title;
@@ -180,6 +180,11 @@ function getMovieHtml(movie)
     
     movieCard.append(img, title, year, detailsBtn);
     return movieCard;
+}
+
+function setPlacehodler(img)
+{
+    img.src = 'https://placehold.co/300x400';
 }
 
 function displayPagination(totalResults, currentPage)
